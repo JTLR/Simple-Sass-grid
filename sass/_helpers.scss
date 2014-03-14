@@ -1,0 +1,14 @@
+@mixin clear-fix {
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+@function rem ($pixels) {
+	@if $stylesheet == "ie" {
+		@return $pixels + px;
+	}
+	@else {
+		@return ($pixels / 16) + rem;
+	}
+}
