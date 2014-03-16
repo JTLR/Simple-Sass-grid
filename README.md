@@ -31,3 +31,7 @@ To set up an SSG grid you need to follow this convention:
 To change any aspect of the generated grid, change the variables in the `_setup.scss` file.
 
 Currently you may only explicitly set either the `$column-width` or `$column-margin` variables.
+
+## License ##
+
+MIT
