@@ -1,0 +1,15 @@
+// Grid variables
+$grid-columns: 24;            
+$grid-width: 1170;         
+$column-width: "";      
+$column-margin: 30;
+
+// Breakpoints
+$base: 0;		     // Above 0px
+$small: rem(321);    // Above 320px
+$medium: rem(481);   // Above 480px
+$large: rem(768);    // Above 767px
+$xlarge: rem(1024);  // Above 1024px
+
+$breakpoints: $base, $small, $medium, $large, $xlarge;
+$breakpoint-alias: "base", "small", "medium", "large", "xlarge";

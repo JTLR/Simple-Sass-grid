@@ -1,21 +1,19 @@
 @import "compass/css3";
 @import "helpers";
+@import "setup";
 
-$stylesheet: stylesheet;
+$calc-column-width: null;
+$calc-column-margin: null;
 
-// Breakpoints
-$small: 30.063em;    // Above 320px
-$medium: 33.813em;   // Above 480px
-$large: 48em;        // Above 767px
-$xlarge: 64em;       // Above 1024px
+@if $column-width != "" {
+    $calc-column-margin: (((($grid-width - ($column-width * $grid-columns))) / ($grid-columns - 1)) * (100 / $grid-width));
+    $calc-column-width: ($column-width  * (100 / $grid-width));
+}
+@if $column-margin != "" {
+    $calc-column-width: ((($grid-width - ($column-margin * ($grid-columns - 1))) / $grid-columns) * (100 / $grid-width));
+    $calc-column-margin: ($column-margin  * (100 / $grid-width));
+}
 
-$grid-columns: 24;            
-$grid-width: rem(1170);         
-$column-width: 1.709404%;      
-$column-margin: 2.5641%;
-
-$breakpoints: 0 $small $medium $large $xlarge;
-$breakpoint-alias: base small medium large xlarge;
 $current-breakpoint: 1;
 
 .grid {
@@ -52,13 +50,13 @@ $current-breakpoint: 1;
         .col {
             @for $i from 1 through $grid-columns {
                 &.#{$slug}-#{$i} {
-                    width: ($column-width * $i) + ($column-margin * ($i - 1));
+                    width: ($calc-column-width * $i) + ($calc-column-margin * ($i - 1));
                 }
             }
         }   
-        @for $i from 0 through ($grid-columns) {
+        @for $i from 0 through ($grid-columns - 1) {
             .#{$slug}-push-#{$i} {
-                margin-left: ($column-width * $i) + ($column-margin * $i);
+                margin-left: ($calc-column-width * $i) + ($calc-column-margin * $i);
             }
         }        
         .#{$slug}-show {
