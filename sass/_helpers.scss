@@ -5,7 +5,7 @@
 }
 
 @mixin breakpoint($min-width, $breakpoint)  {
-	@if $breakpoint > 1 {
+	@if $stylesheet != "ie" and $breakpoint > 1 {
 		@media screen and (min-width: $min-width) {
 			@content;
 		}
@@ -15,5 +15,10 @@
 }
 
 @function rem ($pixels) {
-	@return ($pixels / 16) + rem;
+	@if $stylesheet == "ie" {
+		@return $pixels + px;
+	}
+	@else {
+		@return ($pixels / 16) + rem;
+	}
 }

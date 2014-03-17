@@ -33,6 +33,14 @@ To change any aspect of the generated grid, change the variables in the `_setup.
 
 Currently you may only explicitly set either the `$column-width` or `$column-margin` variables.
 
+## Browser support ##
+
+SSG has been tested and works in Chrome, Firefox and IE9+ without any additional changes.
+
+As the last `.col` element has its right hand margin removed via the `:last-child` pseudo selector, this won't work natively in IE7/8. To support IE7/8 simply add the class `last` to the last `.col` element in a row.
+
+Bare in mind also that IE7/8 don't support media queries therefore each column will take its width from the class of the latest breakpoint. For example `large-16` will override `medium-20`.
+
 ## License ##
 
 MIT

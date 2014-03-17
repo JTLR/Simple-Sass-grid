@@ -39,6 +39,9 @@ $current-breakpoint: 1;
     &:last-child {
         margin-right: 0;
     }
+    &.last {
+        margin-right: 0 !important;
+    }
 }
 @each $breakpoint in $breakpoints {
     $slug: nth($breakpoint-alias, $current-breakpoint);
