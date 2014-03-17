@@ -22,7 +22,7 @@ $current-breakpoint: 1;
     width: 100%;
 }
 .row {
-    max-width: $grid-width;
+    max-width: rem($grid-width);
     margin: 0 auto;
     padding: 0 rem(10);   
     @include box-sizing(content-box);
@@ -35,8 +35,7 @@ $current-breakpoint: 1;
     float: left;
     display: inline;
     width: 100%;
-    margin: 0 $column-margin 20px 0;
-    background-color: #ccc;
+    margin: 0 unquote($calc-column-margin + "%") 0 0;
     &:last-child {
         margin-right: 0;
     }
@@ -50,13 +49,13 @@ $current-breakpoint: 1;
         .col {
             @for $i from 1 through $grid-columns {
                 &.#{$slug}-#{$i} {
-                    width: ($calc-column-width * $i) + ($calc-column-margin * ($i - 1));
+                    width: unquote((($calc-column-width * $i) + ($calc-column-margin * ($i - 1))) + "%");
                 }
             }
         }   
         @for $i from 0 through ($grid-columns - 1) {
             .#{$slug}-push-#{$i} {
-                margin-left: ($calc-column-width * $i) + ($calc-column-margin * $i);
+                margin-left: unquote((($calc-column-width * $i) + ($calc-column-margin * $i)) + "%");
             }
         }        
         .#{$slug}-show {
