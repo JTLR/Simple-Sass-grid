@@ -1,4 +1,4 @@
-Simple-Sass-grid
+Simple Sass Grid
 ================
 
 SSG is what it says on the tin, a simple responsive grid generated using Sass. 
