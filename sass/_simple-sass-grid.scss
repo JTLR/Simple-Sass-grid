@@ -44,7 +44,12 @@ $current-breakpoint: 1;
     }
 }
 @each $breakpoint in $breakpoints {
-    $slug: nth($breakpoint-alias, $current-breakpoint);
+    $slug: nth($breakpoint-alias, $current-breakpoint);  
+    @if $current-breakpoint != 1 { 
+        .#{$slug}-show {
+            display: none;
+        } 
+    }
     @include breakpoint(nth($breakpoints, $current-breakpoint), $current-breakpoint) {      
         .row {    
             padding: 0 rem(10 * $current-breakpoint);        
